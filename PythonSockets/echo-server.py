@@ -1,7 +1,7 @@
 import socket
 
-HOST = '127.0.0.1'
-#HOST = '98.26.116.113'
+#HOST = '127.0.0.1'
+HOST = '98.26.116.113'
 PORT = 3656
 
 while True:
