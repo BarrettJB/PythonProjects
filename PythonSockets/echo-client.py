@@ -4,13 +4,13 @@ import socket
 HOST = '98.26.116.113'
 PORT = 3656
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-  s.connect((HOST, PORT))
-  print("Connected to host ('exit' to leave)")
-  shouldContinue = True
-  while(shouldContinue):
-    msg = input()
-    s.sendall(msg.encode('utf-8'))
-    data = s.recv(1024)
-
-print('Recived: ', repr(data))
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((HOST, PORT))
+print("Connected to host ('exit' to leave)")
+shouldContinue = True
+while(shouldContinue):
+  msg = input()
+  s.sendall(msg.encode('utf-8'))
+  data = s.recv(1024)
+  print('Recived: ', repr(data))
+s.close()
