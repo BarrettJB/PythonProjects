@@ -7,10 +7,11 @@ PORT = 3656
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((HOST, PORT))
 print("Connected to host ('exit' to leave)")
-shouldContinue = True
-while(shouldContinue):
+while(True):
   msg = input()
+  if(msg == 'exit'):
+    break;
   s.sendall(msg.encode('utf-8'))
   data = s.recv(1024)
-  print('Recived: ', repr(data))
+  print('Recived:', str(data,'utf-8'))
 s.close()
